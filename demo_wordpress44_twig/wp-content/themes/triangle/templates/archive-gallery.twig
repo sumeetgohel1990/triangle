@@ -1,0 +1,36 @@
+{% extends "base.twig" %}
+{% block content %}
+
+    <section id="one" class="wrapper style1">
+        <div class="inner">
+            {% set counter = 1 %}
+            {% for home_post in posts %}
+                <article class="" >
+                    <span class="image">
+                        {% if home_post.get_thumbnail %}
+                            <img src="{{home_post.thumbnail.src|resize(500,300)}}" alt="{{home_post.title}}" />
+                        {% endif %}
+                    </span>
+                    <div class="content">
+                        <h2>{{home_post.title}}</h2>
+                        <div class="image-grid">
+                            {% if home_post.get_field('_gallery')  %}
+                                {% for image in home_post.get_field('_gallery')  %}
+                                    <a href="#" class="image"><img src="{{ image.image }}" alt="" /></a>
+                                    {% endfor  %}
+                                {% endif %}  
+                            {#<a href="#" class="image"><img src="{{site.theme.link}}/images/pic04.jpg" alt="" /></a>
+                            <a href="#" class="image"><img src="{{site.theme.link}}/images/pic05.jpg" alt="" /></a>
+                            <a href="#" class="image"><img src="{{site.theme.link}}/images/pic06.jpg" alt="" /></a>
+                            <a href="#" class="image"><img src="{{site.theme.link}}/images/pic07.jpg" alt="" /></a>
+                            <a href="#" class="image"><img src="{{site.theme.link}}/images/pic08.jpg" alt="" /></a>
+                            <a href="#" class="image"><img src="{{site.theme.link}}/images/pic09.jpg" alt="" /></a>
+                            <a href="#" class="image"><img src="{{site.theme.link}}/images/pic10.jpg" alt="" /></a>#}
+                        </div>
+                    </div>
+                </article>
+                {% set counter=counter+1 %}
+            {%  endfor %}
+        </div>
+    </section>
+{% endblock %}

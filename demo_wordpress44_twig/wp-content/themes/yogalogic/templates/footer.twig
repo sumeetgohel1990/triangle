@@ -1,0 +1,191 @@
+<div class="clearfix"></div>
+<footer id="footer">
+	<div class="container">
+    	<div class="row">
+          <div class="col-sm-4">
+          	<div class="call_footer_content wow fadeInUp animated animated">
+             <h3>General Links</h3>
+             <div class="uline"></div>
+             <div class="footer_links_area">
+                <ul>
+                {% for item in menu.get_items %}
+                    <li class="nav-item {{item.classes | join(' ')}}">
+                  <a class="nav-link" href="{{item.get_link}}">{{item.title}}</a>
+                  {% if item.get_children %}
+                    <ul class="nav nav-drop">
+                    {% for child in item.get_children %}
+                      <li class="nav-drop-item">
+                        <a class="nav-link" href="{{child.get_link}}">{{child.title}}</a>
+                      </li>
+                    {% endfor %}
+                    </ul>
+                  {% endif %}
+                </li>
+                {% endfor %}
+
+                </ul>
+         </div>
+        </div>
+          </div>
+          
+          <div class="col-sm-4">
+          	<div class="call_footer_content wow fadeInUp animated animated">
+             <h3>quick contacts</h3>
+             <div class="uline"></div>
+             
+             <div class="quick_contact_form">
+                 {{shortcode(footer_contact_form)}}
+             	{#<form>
+                      <div class="form-group">
+                        <input type="fname" class="form-control" placeholder="First Name">
+                      </div>
+                      
+                      <div class="form-group">
+                        <input type="lname" class="form-control" placeholder="Last Name">
+                      </div>
+                      
+                      <div class="form-group">
+                        <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+                      </div>
+                      <span class="map"><a href="#"><i class="fa fa-map-marker"></i> click to Map</a></span>
+                      <button type="submit" class="btn btn-danger">Send <i class="fa fa-check"></i></button>
+                    </form>#}
+             </div>
+             
+        </div>
+          </div>
+          
+          <div class="col-sm-4">
+          	<div class="call_footer_content wow fadeInUp animated animated">
+             <h3>reach Us</h3>
+             <div class="uline"></div>
+             
+             <div class="footer_address_area">
+             	<address>
+                	<div class="white_text14 text-uppercase"><strong>{{footer_tag_line}}</strong></div>
+                    <div class="margin10"></div>
+                    {{footer_address}}
+                    <div class="margin10"></div>
+                    <div class="off_white_text14"><strong><abbr title="Website">W :</abbr></strong> <a href=" {{footer_site_url}}"> {{footer_site_url}}</a></div>
+                    <div class="off_white_text14"><strong><abbr title="Email">E :</abbr></strong> <a href="mailto:{{footer_inquiry_mail}}">{{footer_inquiry_mail}}</a></div>
+                    <div class="off_white_text14"><strong><abbr title="Telephone">T :</abbr></strong> <a href="tel:{{footer_telephone}}">{{footer_telephone}}</a></div>
+                    <div class="clearfix"></div>
+                   
+                    <div class="social_icons">
+                        <a href="{{s_facebook}}"><i class="fa fa-facebook-square"></i></a>
+                        <a href="{{s_twitter}}"><i class="fa fa-twitter-square"></i></a>
+                        <a href="{{s_linkedin}}"><i class="fa fa-linkedin-square"></i></a>
+                    </div>
+                    
+                </address>
+             </div>
+             
+        </div>
+          </div> 
+        
+        </div>
+    </div>
+</footer>
+
+<div class="clearfix"></div>
+<div id="backtotop" style="display:none;"><i class="fa fa-angle-up"></i></div>
+<div class="copyright_area">
+	<div class="container">
+            {{footer_copyright}}
+    	
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script type="text/javascript" src="{{site.theme.uri}}/js/jquery.min.js"></script> 
+<script src="{{site.theme.uri}}/js/bootstrap.min.js"></script> 
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
+<script src="{{site.theme.uri}}/js/ie10-viewport-bug-workaround.js"></script> 
+<script src="{{site.theme.uri}}/js/owl.carousel.min.js"></script> 
+<script src="{{site.theme.uri}}/js/slider.js"></script> 
+<script src="{{site.theme.uri}}/js/jquery.sticky.js" type="text/javascript"></script> 
+<script src="{{site.theme.uri}}/js/wow.min.js"></script>
+<script>
+$(document).ready(function() {
+	
+	$(".navi").sticky({topSpacing: 0});
+	
+  $("#our_blog , #our_video").owlCarousel({
+ 
+      	autoPlay: false,
+		items : 1,
+		itemsDesktop : [1199,1],
+		itemsDesktopSmall : [979,1],
+		itemsTablet : 	[768,1],
+		itemsMobile : [479,1],
+		stopOnHover : false,
+		pagination :false,
+		responsive: true,
+		responsiveRefreshRate : 200,
+		responsiveBaseWidth: window,
+		autoHeight :false,
+		navigation: true,
+		navigationText: [
+		  "<i class='fa fa-angle-left'></i>",
+		  "<i class='fa fa-angle-right'></i>"
+		  ],
+   
+  });
+  
+  $("#recent_tweets , #testimonials").owlCarousel({
+ 
+      	autoPlay: true,
+		items : 1,
+		itemsDesktop : [1199,1],
+		itemsDesktopSmall : [979,1],
+		itemsTablet : 	[768,1],
+		itemsMobile : [479,1],
+		stopOnHover : false,
+		pagination :true,
+		responsive: true,
+		responsiveRefreshRate : 200,
+		responsiveBaseWidth: window,
+		autoHeight :false,
+		navigation: false,
+   
+  });
+  
+  
+  $('#home-slider').flexslider({
+		animation: "fade",
+		controlNav: true,
+		directionNav: true,
+		animationLoop: true,
+		move: 1
+	});
+  
+  
+   $(window).scroll(function(){
+        if ($(this).scrollTop() > 400) {
+            $('#backtotop').fadeIn('slow');
+        } else {
+            $('#backtotop').fadeOut('slow');
+        }
+		
+		
+    });
+    $('#backtotop').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 1500);
+        return false;
+    });
+	$('.dropdown').on('show.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+  });
+
+  $('.dropdown').on('hide.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+  });
+                
+  new WOW().init();
+    });
+</script>
+</body>
+</html>
+

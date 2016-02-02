@@ -1,0 +1,16 @@
+<div class="item">
+    <div class="bottom_content_inside_img">
+        {% if post.thumbnail.src %}
+            <img src="{{post.thumbnail.src}}" class="img-thumbnail img-responsive" alt="{{post.thumbnail.title}}" />
+        {% endif %}
+    </div>
+    <div class="bottom_content_inside_img_cont">
+        <h3>{{ post.title}}</h3>
+        <h4>{{ post.date|date('M j\\<\\s\\u\\p\\>S\\<\//\s\\u\\p\\> Y')}}</h4>
+        <div class="text">
+            {{ post.excerpt}}
+        </div>
+        <div class="clearfix"></div>
+        <a href="{{site.url}}/{{post.post_type}}" class="btn btn-danger">view all</a>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'MyriadProRegular';
+    src: url('MyriadProRegular.eot');
+    src: url('MyriadProRegular.eot') format('embedded-opentype'),
+         url('MyriadProRegular.woff2') format('woff2'),
+         url('MyriadProRegular.woff') format('woff'),
+         url('MyriadProRegular.ttf') format('truetype'),
+         url('MyriadProRegular.svg#MyriadProRegular') format('svg');
+}
+

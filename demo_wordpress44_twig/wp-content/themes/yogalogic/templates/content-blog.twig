@@ -1,0 +1,28 @@
+<div class="bottom_area_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 fadeInLeft animated animated">
+                    <div class="bottom_content_inside">
+                        <h2>our latest <strong>blogs</strong></h2>
+                        <div class="uline"></div>
+                        <div id="our_blog"> 
+                            {% for post in latest_blogs %}
+                                    {% include "common-loop.twig" %}
+                              {% endfor %}  
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 fadeInRight animated animated">
+                    <div class="bottom_content_inside">
+                        <h2>our latest <strong>videos</strong></h2>
+                        <div class="uline"></div>
+                        <div id="our_video"> 
+                            {% for post in our_class %}
+                                    {% include "common-loop.twig" %}
+                              {% endfor %}  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

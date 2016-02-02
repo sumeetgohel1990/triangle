@@ -1,0 +1,23 @@
+<div class="our_class_schedule_area fadeInDown animated animated">
+        <div class="container">
+            <h2>our class <strong>schedule</strong></h2>
+            <div class="uline"></div>
+            <div class="row">
+                {% for post in our_class %}
+                <div class="col-sm-3">
+                    <div class="our_class_schedule_box">
+                        <div class="our_class_schedule_box_img">
+                            {% if post.thumbnail.src %}
+                            <img src="{{post.thumbnail.src}}" class="img-thumbnail img-responsive" alt="{{post.thumbnail.title}}" />
+                            {% endif %}
+                        </div>
+                        <h3>{{ post.title}}</h3>
+                        <h4>{{ post.date|date('M j\\<\\s\\u\\p\\>S\\<\//\s\\u\\p\\> Y')}}</h4>
+                        <div class="clearfix"></div>
+                        <a href="{{post.permalink}}" class="btn btn-danger">learn more</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>

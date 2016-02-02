@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+{% block content %}
+    {#<div class="content-wrapper">
+            <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+                    <section class="article-content">
+                            <h1 class="article-h1">{{post.title}}</h1>
+                            <div class="article-body">
+                                    {{post.content}}
+                            </div>
+                    </section>
+            </article>
+    </div><!-- /content-wrapper -->#}
+    {#  <!-- content part -->#}
+    <div class="top_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="top_part_left_cont fadeInRight animated animated">
+                        {% if post.title %}<h1 class="test">{{post.title}}</h1>{% endif %}
+                        <div class="uline"></div>
+                        <div class="text">
+                            {{post.content}}
+                        </div>
+                    </div>
+                </div>
+                {% if sidebar %}
+                    <div class="col-sm-3">
+                        {{sidebar}}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

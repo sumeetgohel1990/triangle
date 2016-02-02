@@ -1,0 +1,30 @@
+{% extends "base.twig" %}
+{% block content %}
+    
+    <section id="one" class="wrapper style1">
+        <div class="inner">
+            {% set counter = 1 %}
+            {% for home_post in posts %}
+            <article class="feature {% if(counter%2!=0) %}left {% else %} right {% endif %}">
+                <span class="image">
+                    {% if home_post.get_thumbnail %}
+                    <img src="{{home_post.thumbnail.src|resize(500,300)}}" alt="{{home_post.title}}" />
+                    {% endif %}
+                </span>
+                <div class="content">
+                    <h2>{{home_post.title}}</h2>
+                    {{home_post.get_preview(20,false,'')}}
+                    <ul class="actions">
+                        <li>
+                            <a href="{{home_post.permalink}}" class="button alt">More</a>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+                        {% set counter=counter+1 %}
+             {%  endfor %}
+        </div>
+    </section>
+   
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.twig" %}
+{% block content %}
+    <div class="top_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="top_part_left_img fadeInLeft animated animated">
+                        <img src="{{post.thumbnail.src}}" class="img-thumbnail img-responsive" alt="{{post.thumbnail.title}}" />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="top_part_left_cont fadeInRight animated animated">
+                        {{ post.post_content}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom_shade"></div>
+    <div class="clearfix"></div>
+    <div class="middle_part">
+        <div class="container">
+            <div class="row">
+                <div class="clients_says_main_area wow fadeInUp animated animated">
+                    <div class="col-sm-6">
+                        <h3>Recent <span>Tweets</span></h3>
+                        <div class="uline"></div>
+                        {%  if get_twiiter_url %}
+                                 {% for single_tweet in tweets if single_tweet['text'] %}   
+                                            {{ single_tweet['text']}}
+                                  {% endfor %}   
+                        {% endif%}
+                    </div>
+                </div>
+                <div class="testimonials_area wow fadeInUp animated animated">
+                    <div class="col-sm-6">
+                        <h3>Client <span>Testimonials</span></h3>
+                        <div class="uline"></div>
+                        <div id="testimonials">
+                            {% for post in testimonial %}
+                            <div class="item">
+                                <p class="text">{{ post.content  }}</p>
+                                <p class="text"><strong class="highlight_red">{{ post.get_field('_written_by')}}</strong></p>
+                            </div>  
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    {% include "content-schedule-class.twig" %}
+    <div class="clearfix"></div>
+    {% include "content-blog.twig" %}
+    <div class="clearfix"></div>
+{% endblock %}

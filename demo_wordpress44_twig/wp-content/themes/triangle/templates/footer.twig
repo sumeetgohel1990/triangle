@@ -1,0 +1,78 @@
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center bottom-separator">
+                <img src="{{site.theme.uri}}/images/home/under.png" class="img-responsive inline" alt="">
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="testimonial bottom">
+                    <h2>Testimonial</h2>
+                    {% for singletestimonial in testimonials  %}
+                        <div class="media">
+                            <div class="pull-left">
+                                {% if singletestimonial.thumbnail.src %}
+                                    <img src="{{singletestimonial.thumbnail.src}}" alt="">
+                                {% endif %}
+                            </div>
+                            <div class="media-body">
+                                <blockquote>{{singletestimonial.content}}</blockquote>
+                                <h3>- {{singletestimonial.get_field('_written_by')}}</h3>
+                            </div>
+                        </div>
+                    {%  endfor %}
+                </div> 
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="contact-info bottom">
+                    <h2>Contacts</h2>
+                    <address>
+                        E-mail: <a href="mailto:{{footer_inquiry_mail}}">{{footer_inquiry_mail}}</a> <br> 
+                        Phone: {{footer_telephone}} <br> 
+                        Fax: {{footer_telephone}} <br> 
+                    </address>
+                    <h2>Address</h2>
+                    <address>
+                        {{footer_address}}
+                    </address>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="contact-form bottom">
+                    <h2>Send a message</h2>
+                    {{ shortcode('[contact-form-7 id="30" title="Contact form 1"]')}}
+                    <!--                    <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
+                                            <div class="form-group">
+                                                <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" name="email" class="form-control" required="required" placeholder="Email Id">
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your text here"></textarea>
+                                            </div>                        
+                                            <div class="form-group">
+                                                <input type="submit" name="submit" class="btn btn-submit" value="Submit">
+                                            </div>
+                                        </form>-->
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="copyright-text text-center">
+                    {{footer_copyright}}
+                    <!--                    <p>&copy; Your Company 2014. All Rights Reserved.</p>
+                                        <p>Designed by <a target="_blank" href="{{site.theme.uri}}/http://www.themeum.com">Themeum</a></p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--/#footer-->
+
+<script type="text/javascript" src="{{site.theme.uri}}/js/jquery.js"></script>
+<script type="text/javascript" src="{{site.theme.uri}}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{site.theme.uri}}/js/lightbox.min.js"></script>
+<script type="text/javascript" src="{{site.theme.uri}}/js/wow.min.js"></script>
+<script type="text/javascript" src="{{site.theme.uri}}/js/main.js"></script>   
+{{ function('wp_footer') }}
+</body>
+</html>

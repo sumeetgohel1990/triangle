@@ -1,0 +1,83 @@
+{% extends "base.twig" %}
+{% block content %}
+    <!-- /content-wrapper -->
+    <!-- Main -->
+    <section id="page-breadcrumb">
+        <div class="vertical-center sun">
+            <div class="container">
+                <div class="row">
+                    <div class="action">
+                        <div class="col-sm-12">
+                            <h1 class="title">{{wp_title}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#action-->
+    
+        <section id="blog" class="padding-top">
+        <div class="container">
+            <div class="row">
+                {{blogsidebar}}
+                <div class="col-md-9 col-sm-7">
+                    <div class="row">
+                        {% set counter = 1 %}
+                        {% set left_class = 'col-sm-5 wow fadeInLeft' %}
+                        {% set right_class = 'col-sm-6 col-sm-offset-1 align-right wow fadeInLeft' %}
+                        {% set left_content_class = 'col-sm-6 wow fadeInRight' %}
+                        {% set right_content_class = 'col-sm-5 wow fadeInRight' %}
+                        {% for post in posts %}
+                            <div class="col-md-12 col-sm-12">
+                                <div class="single-blog two-column">
+                                    <div class="post-thumb">
+                                        <a href="{{post.permalink}}">
+                                            {% if post.thumbnail.src %}
+                                                <img src="{{post.thumbnail.src(medium)}}" class="img-responsive" alt="{{post.title}}">
+                                            {% else %}
+                                                <img src="{{no_image}}" class="img-responsive" alt="{{post.title}}">
+                                            {% endif%}
+                                        </a>
+                                        <div class="post-overlay">
+                                            <span class="uppercase"><a href="#">{{post.date|date('d')}} <br><small>{{post.date|date('M')}}</small></a></span>
+                                        </div>
+                                    </div>
+                                    <div class="post-content overflow">
+                                        <h2 class="post-title bold"><a href="{{post.permalink}}">{{post.title}}</a></h2>
+                                        <h3 class="post-author"><a href="{% do action('custom_get_post_author_link',post.post_author) %}">Posted by {{post.author}}</a></h3>
+                                        <p>{{post.get_preview(20,false,'')}}</p>
+                                        <a href="{{post.permalink}}" class="read-more">View More</a>
+                                        <div class="post-bottom overflow">
+                                            <ul class="nav navbar-nav post-nav">
+                                                <li><a href="#"><i class="fa fa-tag"></i>{{post.category}}</a></li>
+<!--                                                <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>-->
+                                                {% if post.comment_count %}<li><a href="#"><i class="fa fa-comments"></i>{{post.comment_count}} Comments</a></li>{% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor%}
+                    </div>
+                    <div class="blog-pagination">
+                        <ul class="pagination">
+                            <li><a href="#">left</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li class="active"><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">right</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#blog-->
+{% endblock %}

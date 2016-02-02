@@ -1,0 +1,23 @@
+{% block html_head_container %}
+    {% include 'html-header.twig' %}
+    {% block head %}
+    {% endblock %}
+{% endblock %}
+
+{% block html_container %}
+    {% block content %}
+    {% endblock%}
+{% endblock%}
+
+
+
+
+<!--/#clients-->
+{% block clients %}
+    {% include 'part-clients.twig' %}
+{% endblock %}    
+
+<!--/#footer-->
+{% block footer %}
+    {% include 'footer.twig' %}
+{% endblock %}
